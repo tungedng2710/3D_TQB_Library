@@ -35,7 +35,7 @@ unsigned int loadCubemap(vector<std::string> faces);
 const unsigned int SCR_WIDTH = 1920;
 const unsigned int SCR_HEIGHT = 1080;
 
-Camera camera(glm::vec3(0.0f, 1.0f, 10.0f));
+Camera camera(glm::vec3(4.0f, 1.0f, 7.0f));
 float lastX = SCR_WIDTH / 1.0f;
 float lastY = SCR_HEIGHT / 1.0f;
 bool firstMouse = true;
@@ -43,7 +43,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-glm::vec3 lightPos(0.0f, 5.0f, 5.0f);
+glm::vec3 lightPos(0.0f, 7.0f, 7.0f);
 int main() {
 	//1. init glfw
 	glfwInit();
@@ -83,7 +83,7 @@ int main() {
 	glEnable(GL_DEPTH_TEST);
 	Shader ourShader("Shaders/vShader.glsl", "Shaders/fShader.glsl");
 	Shader lightCubeShader("Shaders/light_cube.vs", "Shaders/light_cube.fs");
-	Shader skyboxShader("Shaders/6.2.skybox.vs", "Shaders/6.2.skybox.fs");
+	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	float vertices[] = {
 		-0.5f, -0.5f, -0.5f, 
 		 0.5f, -0.5f, -0.5f,  
@@ -180,7 +180,7 @@ int main() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	string path = "Assets/field-skyboxes/Sorsele3/";
+	string path = "Assets/HornstullsStrand/";
 	vector<std::string> faces{
 		path + "right.jpg",
 		path + "left.jpg",
@@ -218,7 +218,7 @@ int main() {
 		
 		ourShader.use();
 
-		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 200.0f);
 		glm::mat4 view = camera.GetViewMatrix();
 		ourShader.setMat4("projection", projection);
 		ourShader.setMat4("view", view);
