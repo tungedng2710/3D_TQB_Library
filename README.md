@@ -6,7 +6,7 @@
 ![image](https://user-images.githubusercontent.com/48611435/120130924-7dfddb80-c1f1-11eb-9cce-a9b14cda1937.png)
 
 
-We use Blender for create our textured 3D model 
+We use Blender to create our textured 3D model 
 
 Reference: https://learnopengl.com/
 
